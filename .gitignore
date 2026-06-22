@@ -1,0 +1,7 @@
+node_modules/
+__pycache__/
+*.pyc
+server/dishes.db
+client/build/
+.env
+.DS_Store
