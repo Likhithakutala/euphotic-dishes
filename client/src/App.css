@@ -1,0 +1,243 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  padding: 0 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  font-size: 36px;
+}
+
+.header-left h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #a0aec0;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* SSE Badge */
+.sse-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.2px;
+}
+
+.sse-badge.connected {
+  background: rgba(72, 187, 120, 0.15);
+  color: #68d391;
+  border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.sse-badge.disconnected {
+  background: rgba(245, 101, 101, 0.15);
+  color: #fc8181;
+  border: 1px solid rgba(245, 101, 101, 0.3);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 999;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  animation: slideIn 0.3s ease;
+  max-width: 320px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.toast-success { background: #f0fff4; color: #276749; border: 1px solid #c6f6d5; }
+.toast-warning { background: #fffbeb; color: #744210; border: 1px solid #fef3c7; }
+.toast-error { background: #fff5f5; color: #742a2a; border: 1px solid #fed7d7; }
+.toast-info { background: #ebf8ff; color: #2a4365; border: 1px solid #bee3f8; }
+
+/* Main */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  width: 100%;
+  flex: 1;
+}
+
+/* Stats Bar */
+.stats-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  flex: 1;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.stat-num.published { color: #38a169; }
+.stat-num.unpublished { color: #e53e3e; }
+
+.stat-label {
+  font-size: 12px;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  background: white;
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.filter-btn.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Center states */
+.center-msg {
+  text-align: center;
+  padding: 60px 20px;
+  color: #718096;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.error-msg { color: #e53e3e; }
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.retry-btn {
+  padding: 10px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.retry-btn:hover { background: #5a67d8; }
+
+@media (max-width: 600px) {
+  .stats-bar { flex-direction: column; }
+  .header-left h1 { font-size: 18px; }
+}

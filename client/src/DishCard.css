@@ -1,0 +1,145 @@
+.dish-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+  border: 1.5px solid transparent;
+}
+
+.dish-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.dish-card.unpublished {
+  opacity: 0.72;
+  border-color: #fed7d7;
+}
+
+/* Image */
+.dish-img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: #edf2f7;
+}
+
+.dish-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.dish-card:hover .dish-img {
+  transform: scale(1.05);
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(6px);
+}
+
+.badge-published {
+  background: rgba(72, 187, 120, 0.9);
+  color: white;
+}
+
+.badge-unpublished {
+  background: rgba(245, 101, 101, 0.9);
+  color: white;
+}
+
+/* Body */
+.dish-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dish-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dish-id {
+  font-size: 11px;
+  color: #a0aec0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dish-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a202c;
+  line-height: 1.3;
+}
+
+/* Toggle button */
+.toggle-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+}
+
+.toggle-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-unpublish {
+  background: #fff5f5;
+  color: #c53030;
+  border: 1.5px solid #fed7d7;
+}
+
+.btn-unpublish:hover:not(:disabled) {
+  background: #fed7d7;
+}
+
+.btn-publish {
+  background: #f0fff4;
+  color: #276749;
+  border: 1.5px solid #c6f6d5;
+}
+
+.btn-publish:hover:not(:disabled) {
+  background: #c6f6d5;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
